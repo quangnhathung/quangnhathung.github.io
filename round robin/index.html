@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author: Quang Nhat Hung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mô phỏng giải thuật định thời Round Robin</h1>
+        <div class="form-section">
+            <h2>Enter Process Details</h2>
+            <label for="processCount">Số lượng tiến trình: </label>
+            <input type="number" id="processCount" min="1" required>
+            <button onclick="generateProcessInput()">Xác nhận</button>
+
+            <div id="processInputSection"></div>
+
+            <label for="timeQuantum">Time Quantum (Time Slice): </label>
+            <input type="number" id="timeQuantum" min="1" required>
+            <button onclick="runRoundRobin()">Run Round Robin</button>
+        </div>
+
+        <h2>Kết quả:</h2>
+        <div id="resultTable" class="result-table"></div>
+
+        <h3>Sơ đồ Gantt:</h3>
+        <div id="ganttChart" class="gantt-chart"></div>
+        <!-- <div class="gantt-block color1">Task 1</div>
+        <div class="gantt-block color2">Task 2</div>
+        <div class="gantt-block color3">Task 3</div>
+        <div class="gantt-block color4">Task 4</div> -->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

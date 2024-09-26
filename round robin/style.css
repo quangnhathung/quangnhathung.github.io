@@ -1,0 +1,96 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.result-table {
+    margin-top: 20px;
+}
+
+.gantt-chart {
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 110%; 
+    margin-top: 20px;
+}
+.gantt-row {
+    display: flex; /* Để các khối nằm trên cùng một hàng */
+    padding-bottom: 10px; /* Khoảng cách giữa các hàng (padding bên dưới hàng) */
+}
+.gantt-block {
+    padding-bottom: 10px;
+    padding: 5px;
+    background-color: #afffb2;
+    border: 1px solid black;
+    margin-right: 5px;
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s;
+} 
+/* .grantt-block.color1 { background-color: lightgreen; }
+.grantt-block.color2 { background-color: lightblue; }
+.grantt-block.color3 { background-color: lightcoral; }
+.grantt-block.color4 { background-color: lightgoldenrodyellow; }
+.grantt-block.color5 { background-color: lightpink; } */
+
+.gantt-block:hover {
+    transform: scale(1.1);
+}
