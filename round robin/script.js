@@ -85,7 +85,14 @@ function runRoundRobin() {
     });
     resultHtml += `</table>`;
     document.getElementById('resultTable').innerHTML = resultHtml;
-
+    let avgtime = 0;
+    let cnt=0;
+    processes.forEach(process => {
+        cnt++;
+        avgtime+=process.waitingTime;
+    });
+    avgtime= avgtime/cnt;
+    document.getElementById('Time').innerHTML = avgtime.toFixed(3);
     //má vcl thiệt
     let ganttHtml = '';
     ganttChart.forEach(block => {
