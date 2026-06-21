@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Ôn Luyện Trắc Nghiệm - QTHTM</title>
+    <!-- Import Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Panel for Settings & Stats -->
+        <aside class="sidebar-panel">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h2>QTHTM Quiz</h2>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3>CẤU HÌNH ĐỀ THI</h3>
+                    
+                    <!-- Config Form -->
+                    <div class="config-item">
+                        <label for="source-select"><i class="fa-solid fa-file-lines"></i> Nguồn câu hỏi</label>
+                        <select id="source-select">
+                            <option value="all">Tất cả nguồn câu hỏi</option>
+                            <option value="NOI DUNG ON TAP - QTHTM - 04-6-2026.pdf">NOI DUNG ON TAP - QTHTM - 04-6-2026.pdf</option>
+                            <option value="ÔN TẬP CHO SV.pdf">ÔN TẬP CHO SV.pdf</option>
+                            <option value="SAI LA TOI - QTHTM.pdf">SAI LA TOI - QTHTM.pdf</option>
+                            <option value="QTHTM.docx">QTHTM.docx</option>
+                            <option value="Trac nghiem QTHTM.docx">Trac nghiem QTHTM.docx</option>
+                        </select>
+                    </div>
+
+                    <div class="config-item">
+                        <label for="q-count"><i class="fa-solid fa-list-ol"></i> Số lượng câu hỏi</label>
+                        <select id="q-count">
+                            <option value="10">10 Câu</option>
+                            <option value="20">20 Câu</option>
+                            <option value="50">50 Câu</option>
+                            <option value="100">100 Câu</option>
+                            <option value="all" selected>Tất cả câu hỏi</option>
+                        </select>
+                    </div>
+
+                    <div class="config-checkboxes">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="shuffle-questions" checked>
+                            <span class="checkmark"></span>
+                            Xáo trộn câu hỏi
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="shuffle-options" checked>
+                            <span class="checkmark"></span>
+                            Xáo trộn các lựa chọn
+                        </label>
+                    </div>
+
+                    <button id="start-btn" class="primary-btn"><i class="fa-solid fa-play"></i> Bắt đầu ôn tập</button>
+                </div>
+            </div>
+
+            <!-- Footer info -->
+            <div class="sidebar-footer">
+                <p>Hệ thống ôn luyện QTHTM</p>
+                <span>Phiên bản 1.0.0</span>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Setup/Home Screen -->
+            <section id="home-screen" class="screen active">
+                <div class="hero-section">
+                    <h1>Hệ Thống Ôn Luyện Trắc Nghiệm Mạng</h1>
+                    <p>Ứng dụng web tự động quét, phân tích và đồng bộ đáp án các bộ câu hỏi ôn tập từ PDF và Word.</p>
+                </div>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-solid fa-folder-open"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="source-files-count">3</span>
+                            <span class="stat-label">Tệp dữ liệu ôn tập</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-database"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="total-questions-count">0</span>
+                            <span class="stat-label">Tổng câu hỏi trong kho</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-card">
+                    <h3><i class="fa-solid fa-circle-info"></i> Hướng dẫn ôn tập</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Chọn tệp câu hỏi ôn tập mà bạn muốn luyện hoặc chọn tất cả.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Bạn có thể bật tính năng xáo trộn câu hỏi và các phương án trả lời để ghi nhớ kiến thức tốt hơn thay vì học thuộc lòng theo thứ tự.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Sau khi nộp bài, điểm số sẽ được hiển thị ngay lập tức kèm biểu đồ phân tích.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Hệ thống cho phép bạn lọc và xem lại chi tiết tất cả các câu bạn đã trả lời sai để rút kinh nghiệm.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Quiz Screen -->
+            <section id="quiz-screen" class="screen">
+                <div class="quiz-header">
+                    <div class="quiz-progress-info">
+                        <span id="quiz-progress-text">Câu hỏi 1 / 10</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="quiz-progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="quiz-timer">
+                        <i class="fa-solid fa-clock"></i> <span id="timer-text">00:00</span>
+                    </div>
+                </div>
+
+                <!-- Active Question Card -->
+                <div class="question-container" id="question-container">
+                    <!-- Dynamic Content -->
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="quiz-controls">
+                    <button id="prev-btn" class="secondary-btn"><i class="fa-solid fa-chevron-left"></i> Câu trước</button>
+                    <button id="check-btn" class="primary-btn" style="width: auto; background: linear-gradient(135deg, var(--color-success), #10b981); box-shadow: 0 4px 15px rgba(52, 211, 153, 0.3);"><i class="fa-solid fa-square-check"></i> Kiểm tra</button>
+                    <button id="next-btn" class="secondary-btn">Câu tiếp theo <i class="fa-solid fa-chevron-right"></i></button>
+                    <button id="submit-btn" class="primary-btn danger-btn"><i class="fa-solid fa-check-double"></i> Nộp bài</button>
+                </div>
+            </section>
+
+            <!-- Results & Review Screen -->
+            <section id="result-screen" class="screen">
+                <div class="result-header">
+                    <h2>KẾT QUẢ ÔN TẬP</h2>
+                </div>
+
+                <div class="result-layout">
+                    <!-- Left: Radial Donut Score Chart -->
+                    <div class="result-score-panel">
+                        <div class="radial-chart-container">
+                            <svg class="radial-svg" viewBox="0 0 120 120">
+                                <circle class="circle-bg" cx="60" cy="60" r="50"></circle>
+                                <circle class="circle-val" cx="60" cy="60" r="50" id="result-circle"></circle>
+                            </svg>
+                            <div class="chart-content">
+                                <span class="score-percent" id="score-percent">0%</span>
+                                <span class="score-fraction" id="score-fraction">0 / 0</span>
+                            </div>
+                        </div>
+                        <h3 id="result-rating">Cần Cố Gắng!</h3>
+                        <p class="time-spent-text"><i class="fa-solid fa-stopwatch"></i> Thời gian: <span id="time-spent">00:00</span></p>
+                        <button id="restart-btn" class="primary-btn"><i class="fa-solid fa-rotate-right"></i> Luyện đề mới</button>
+                    </div>
+
+                    <!-- Right: Statistics Cards -->
+                    <div class="result-stats-panel">
+                        <div class="stat-mini-card correct">
+                            <div class="mini-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="mini-info">
+                                <span class="mini-value" id="correct-count">0</span>
+                                <span class="mini-label">Câu trả lời đúng</span>
+                            </div>
+                        </div>
+                        <div class="stat-mini-card incorrect">
+                            <div class="mini-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div class="mini-info">
+                                <span class="mini-value" id="incorrect-count">0</span>
+                                <span class="mini-label">Câu trả lời sai</span>
+                            </div>
+                        </div>
+                        <div class="stat-mini-card skipped">
+                            <div class="mini-icon"><i class="fa-solid fa-circle-minus"></i></div>
+                            <div class="mini-info">
+                                <span class="mini-value" id="skipped-count">0</span>
+                                <span class="mini-label">Câu bỏ qua</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Section -->
+                <div class="review-section">
+                    <div class="review-header">
+                        <h3>Xem Lại Câu Hỏi</h3>
+                        <!-- Review Filters -->
+                        <div class="review-filters">
+                            <button class="filter-btn active" data-filter="all">Tất cả</button>
+                            <button class="filter-btn text-danger" data-filter="wrong">Câu sai</button>
+                            <button class="filter-btn text-success" data-filter="correct">Câu đúng</button>
+                        </div>
+                    </div>
+
+                    <!-- List of reviewed questions -->
+                    <div class="review-list" id="review-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Import JavaScript -->
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

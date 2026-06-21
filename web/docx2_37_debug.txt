@@ -1,0 +1,13 @@
+{
+  "id": "docx2_37",
+  "num": 38,
+  "question": "Câu 8: Bạn là quản trị viên của một máy Windows Server 2012 R2 mới. Bạn cần cài đặt WSUS. Bạn cài đặt WSUS từ đâu?",
+  "options": [
+    "A. Add/Remove Programs (Thêm/Gỡ bỏ Chương trình)",
+    "B. Programs (Chương trình)",
+    "C. Server Manager (Trình quản lý Máy chủ)",
+    "D. Administrative Tools (Công cụ Quản trị)"
+  ],
+  "answer": "C",
+  "source": "QTHTM.docx"
+}

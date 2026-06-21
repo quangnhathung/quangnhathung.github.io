@@ -1,0 +1,28 @@
+[
+  {
+    "id": "docx2_56",
+    "num": 57,
+    "question": "Câu 27: Bạn là quản trị viên mạng cho một công ty trong danh sách Fortune 500. Bạn chịu trách nhiệm cho tất cả các máy tính khách tại cơ sở trung tâm. Bạn muốn đảm bảo rằng tất cả các máy tính khách đều có phần mềm mới nhất được cài đặt cho hệ điều hành của chúng, bao gồm phần mềm trong các danh mục Cập nhật Quan trọng và Gói Dịch vụ, Dòng Windows Server 2012 R2, và Cập nhật Trình điều khiển. Bạn muốn tự động hóa quy trình càng nhiều càng tốt, và bạn muốn các máy tính khách tải xuống các bản cập nhật từ một máy chủ trung tâm mà bạn đang quản lý. Bạn quyết định sử dụng Windows Server Update Services (WSUS). Phần mềm máy chủ WSUS đã được cài đặt trên một máy chủ có tên là WSUSServer. Bạn muốn kiểm tra máy chủ WSUS trước khi thiết lập các chính sách nhóm trong miền. Bạn cài đặt Windows 8. Cần phải thực hiện mục đăng ký nào sau đây để máy khách chỉ định rằng nó nên sử dụng WSUSServer cho Windows Update? Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\WUServer và chỉ định http ://WSUSServer. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\WUServer và chỉ định http: //WSUSServer. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\WUServer và chỉ định WSUSServer. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseWUServer và chỉ định dữ liệu 0.",
+    "options": [
+      "A. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseWUServer và chỉ định dữ liệu 0.",
+      "B. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseWUServer và chỉ định 1 cho dữ liệu.",
+      "C. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\WUServer và chỉ định WSUSServer.",
+      "D. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\WUServer và chỉ định WSUSServer."
+    ],
+    "answer": "B",
+    "source": "QTHTM.docx"
+  },
+  {
+    "id": "pdf_nd_44",
+    "num": 45,
+    "question": "Trong một kịch bản triển khai hệ thống quản lý bản vá tập trung, bạn được giao nhiệm vụ cấu hình thử nghiệm một máy trạm chạy Windows 8 để nhận các bản cập nhật kiểm định từ máy chủ WSUS nội bộ có tên là WSUSServer. Do hệ thống Active Directory đang trong giai đoạn bảo trì, bạn không thể sử dụng Chính sách nhóm (Group Policy Object - GPO) để phân phối cấu hình này xuống máy trạm một cách tự động. Thay vào đó, bạn phải chỉnh sửa trực tiếp các giá trị trong Windows Registry của máy trạm này để bắt buộc nó bỏ qua Microsoft Update trên Internet và trỏ thẳng về máy chủ WSUSServer trong mạng nội bộ. Cần phải thực hiện mục đăng ký nào sau đây trong Registry Editor để hoàn tất yêu cầu trên?",
+    "options": [
+      "A. Sử dụng",
+      "B. Sử dụng",
+      "C. Sử dụng",
+      "D. Sử dụng HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\WUServer và"
+    ],
+    "answer": "A",
+    "source": "NOI DUNG ON TAP - QTHTM - 04-6-2026.pdf"
+  }
+]

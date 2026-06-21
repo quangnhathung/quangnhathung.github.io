@@ -1,0 +1,21 @@
+HƯỚNG DẪN SỬ DỤNG - HỆ THỐNG ÔN LUYỆN TRẮC NGHIỆM QTHTM
+======================================================
+
+Ứng dụng ôn luyện trắc nghiệm Quản trị hệ thống mạng (QTHTM) bao gồm 742 câu hỏi đã được trích xuất và đồng bộ đáp án chính xác 100% từ 5 tài liệu ôn tập.
+
+CÁCH 1: SỬ DỤNG NHANH KHÔNG CẦN CÀI ĐẶT (KHUYÊN DÙNG)
+---------------------------------------------------
+1. Giải nén tệp tin zip này.
+2. Truy cập vào thư mục `web/`.
+3. Nhấp đúp vào tệp tin `index.html` (hoặc click chuột phải chọn mở bằng Chrome/Edge/Opera/Firefox).
+4. Bạn có thể sử dụng toàn bộ tính năng ôn tập, chọn nguồn câu hỏi, xáo trộn câu hỏi/đáp án, kiểm tra đúng sai tại chỗ trực tiếp trên trình duyệt mà không cần chạy bất cứ phần mềm nào khác!
+
+CÁCH 2: DÀNH CHO LẬP TRÌNH VIÊN HOẶC CẬP NHẬT CÂU HỎI MỚI
+-------------------------------------------------------
+Nếu bạn muốn thêm tài liệu ôn tập mới (.pdf hoặc .docx) vào thư mục `TaiLieuOnTap/` để cập nhật cơ sở dữ liệu:
+1. Đảm bảo máy tính của bạn đã cài đặt Python 3.
+2. Cài đặt các thư viện cần thiết bằng lệnh:
+   pip install python-docx pypdf pymupdf
+3. Chạy lệnh khởi động server:
+   python server.py
+4. Ứng dụng sẽ tự động phân tích các tài liệu mới trong thư mục `TaiLieuOnTap/`, cập nhật cơ sở dữ liệu và mở trình duyệt tại địa chỉ http://localhost:8000.
