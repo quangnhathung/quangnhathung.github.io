@@ -12,7 +12,7 @@ const homeScreen = document.getElementById('home-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 
-const sourceSelect = document.getElementById('source-select');
+const sourceCheckboxesContainer = document.getElementById('source-checkboxes');
 const qCountSelect = document.getElementById('q-count');
 const shuffleQuestionsCheckbox = document.getElementById('shuffle-questions');
 const shuffleOptionsCheckbox = document.getElementById('shuffle-options');
@@ -67,13 +67,26 @@ function initHomeStats() {
     const sources = [...new Set(allQuestions.map(q => q.source))];
     document.getElementById('source-files-count').innerText = sources.length;
     
-    // Dynamically build select options (in case new files are added)
-    sourceSelect.innerHTML = '<option value="all">Tất cả nguồn câu hỏi</option>';
+    // Dynamically build source checkboxes
+    sourceCheckboxesContainer.innerHTML = '';
     sources.forEach(src => {
-        const opt = document.createElement('option');
-        opt.value = src;
-        opt.innerText = src;
-        sourceSelect.appendChild(opt);
+        const label = document.createElement('label');
+        label.className = 'custom-checkbox';
+
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = src;
+        cb.checked = true;
+
+        const span = document.createElement('span');
+        span.className = 'checkmark';
+
+        const text = document.createTextNode(' ' + src);
+
+        label.appendChild(cb);
+        label.appendChild(span);
+        label.appendChild(text);
+        sourceCheckboxesContainer.appendChild(label);
     });
 }
 
@@ -90,18 +103,23 @@ function shuffleArray(array) {
 startBtn.addEventListener('click', startQuiz);
 
 function startQuiz() {
-    const selectedSource = sourceSelect.value;
+    const sourceCbs = document.querySelectorAll('#source-checkboxes input[type="checkbox"]');
+    const selectedSources = [];
+    sourceCbs.forEach(cb => {
+        if (cb.checked) selectedSources.push(cb.value);
+    });
+
     const countSelect = qCountSelect.value;
     const shuffleQs = shuffleQuestionsCheckbox.checked;
     const shuffleOpts = shuffleOptionsCheckbox.checked;
     
-    // Filter by source
-    let filtered = [];
-    if (selectedSource === 'all') {
-        filtered = [...allQuestions];
-    } else {
-        filtered = allQuestions.filter(q => q.source === selectedSource);
+    if (selectedSources.length === 0) {
+        alert('Vui lòng chọn ít nhất một nguồn câu hỏi.');
+        return;
     }
+    
+    // Filter by selected sources
+    let filtered = allQuestions.filter(q => selectedSources.includes(q.source));
     
     if (filtered.length === 0) {
         alert('Không có câu hỏi nào thuộc nguồn đã chọn.');

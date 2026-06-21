@@ -147,6 +147,28 @@ body {
     margin-bottom: 2rem;
 }
 
+.source-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 0.5rem 0;
+}
+
+.source-checkboxes::-webkit-scrollbar {
+    width: 4px;
+}
+
+.source-checkboxes::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.source-checkboxes::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
 /* Custom Checkbox Design */
 .custom-checkbox {
     display: flex;
